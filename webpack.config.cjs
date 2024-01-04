@@ -27,6 +27,17 @@ module.exports = {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
+            {
+                test: /\.tsx?$/i,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            }
         ]
-    }
+    },
+    devServer: {
+        open: true,
+        liveReload: true,
+        static: path.resolve(__dirname, './src'),
+    },
+    target: 'web',
 }
