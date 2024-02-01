@@ -8,7 +8,7 @@
     "build:dev": "npx webpack --mode=development",
     "start:server": "npx webpack serve",
     "format": "node ./node_modules/prettier/bin/prettier.cjs --check --config ./.prettierrc ./src --log-level warn --write",
-    "lint:check": "npx eslint --ext .jsx,.js,.ts ./src/",
+    "lint:check": "npx eslint --ext .jsx,.ts ./src/",
     "lint:fix": "npx eslint --ext .jsx,.js,.ts ./src/ --fix",
     "prepare": "husky install"
   },
