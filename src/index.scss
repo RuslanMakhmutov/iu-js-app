@@ -1,0 +1,172 @@
+@import 'https://necolas.github.io/normalize.css/8.0.1/normalize.css';
+
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #222;
+}
+
+.container {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1880px;
+
+  @media (max-width: 920px) {
+    max-width: 880px;
+  }
+
+  @media (max-width: 540px) {
+    max-width: 500px;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+.favorites {
+
+  &__title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+
+    &::after {
+      content: ' 5 карточек в ряд';
+
+      @media (max-width: 920px) {
+        content: ' 3 карточки в ряд';
+      }
+
+      @media (max-width: 540px) {
+        content: ' 1 карточка в ряд';
+      }
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(#000, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  flex: 0 0 calc((100% - 2rem * 4) / 5);
+  max-width: calc((100% - 2rem * 4) / 5);
+
+  @media (max-width: 920px) {
+    flex-basis: calc((100% - 2rem * 2) / 3);
+    max-width: calc((100% - 2rem * 2) / 3);
+  }
+
+  @media (max-width: 540px) {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+
+
+  &__thumb {
+    margin: -1rem -1rem 0.5rem;
+    position: relative;
+    background-color: #ccc;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    height: 7.5rem;
+  }
+
+  &__price {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: darken(red, 25%);
+  }
+
+  &__img {
+    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__tags {
+    margin-bottom: 0.25rem;
+  }
+
+  &__title {
+    margin: 0 0 1.75rem;
+    line-height: 1.2;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__add2cart {
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    margin: auto 0 0.25rem;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(#000, 0.15);
+    background-color: lighten(orange, 30%);
+    color: darken(orange, 20%);
+    transition: all 0.1s;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      background-color: lighten(orange, 35%);
+      color: darken(orange, 15%);
+    }
+  }
+}
+
+.tags {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.tag {
+  display: inline;
+  font-size: 0.75rem;
+
+  &::after {
+    content: ', ';
+  }
+
+  &:last-child {
+
+    &::after {
+      content: normal;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &_seller {
+      color: darkmagenta;
+    }
+
+    &_price {
+      color: darkcyan;
+    }
+  }
+}

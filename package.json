@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "autoprefixer": "^10.4.17",
     "css-loader": "^6.8.1",
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -27,15 +28,19 @@
     "html-webpack-plugin": "^5.6.0",
     "husky": "^8.0.3",
     "mini-css-extract-plugin": "^2.7.6",
+    "postcss": "^8.4.34",
+    "postcss-loader": "^8.1.0",
     "prettier": "^3.1.1",
+    "sass": "^1.70.0",
+    "sass-loader": "^14.1.0",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
-    "webpack": "^5.89.0",
+    "webpack": "^5.90.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
-  "browserslist": "> 1%, not dead",
+  "browserslist": "last 30 versions",
   "dependencies": {
     "node-fetch": "^2.7.0"
   }

@@ -1,20 +1,135 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="x-ua-compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Scope</title>
-        <script src='./async.js' defer></script>
-        <script src='./arrays-objects-methods.js' defer></script>
-        <script src='./scope.js' defer></script>
+        <title>ДЗ по карточкам</title>
     </head>
     <body>
-        <h1>Scope</h1>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
-        <button>5</button>
+        <div class="container">
+            <h1>Карточки</h1>
+
+            <section class="favorites">
+                <p class="favorites__title">Избранные товары:</p>
+                <div class="cards">
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/200x100/blue/white" alt="товар 1" class="card__img">
+                        </div>
+                        <div class="card__price">550 ₽</div>
+                        <div class="card__tags">
+                            <ul class="tags">
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_seller">Бестселлер</a>
+                                </li>
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_price">Лучшая цена</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="card__title">Lorem ipsum dolor sit amet</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/200x200/orange/white" alt="товар 2" class="card__img">
+                        </div>
+                        <div class="card__price">750 ₽</div>
+                        <div class="card__tags">
+                            <ul class="tags">
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_price">Лучшая цена</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="card__title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate ea earum error fugiat impedit molestias sit temporibus tenetur voluptate. Aliquam delectus sit suscipit! Doloribus ducimus obcaecati odio vero voluptates.</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/300x200/green/white" alt="товар 3" class="card__img">
+                        </div>
+                        <div class="card__price">2 500 ₽</div>
+                        <p class="card__title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis cupiditate ea earum error fugiat impedit molestias sit.</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/60x40/blue/white" alt="товар 4" class="card__img">
+                        </div>
+                        <div class="card__price">3400 ₽</div>
+                        <div class="card__tags">
+                            <ul class="tags">
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_seller">Бестселлер</a>
+                                </li>
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_price">Лучшая цена</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="card__title">Lorem ipsum dolor sit amet</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/400x80/black/white" alt="товар 5" class="card__img">
+                        </div>
+                        <div class="card__price">100 ₽</div>
+                        <div class="card__tags">
+                            <ul class="tags">
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_seller">Хит продаж</a>
+                                </li>
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_price">Лучшая цена</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="card__title">Lorem ipsum dolor sit amet</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/100x200/blue/white" alt="товар 6" class="card__img">
+                        </div>
+                        <div class="card__price">221 ₽</div>
+                        <p class="card__title">Lorem ipsum dolor sit amet</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__thumb">
+                            <img src="https://placehold.co/300x150/gray/yellow" alt="товар 7" class="card__img">
+                        </div>
+                        <div class="card__price">587 ₽</div>
+                        <div class="card__tags">
+                            <ul class="tags">
+                                <li class="tag">
+                                    <a href="#" class="tag__link tag__link_price">Лучшая цена</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="card__title">Lorem ipsum dolor sit amet</p>
+
+                        <button class="card__add2cart">В корзину</button>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
     </body>
 </html>
