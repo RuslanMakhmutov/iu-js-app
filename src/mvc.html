@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .modal {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal__body {
+        width: 300px;
+        height: 200px;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: white;
+    }
+</style>
+
+<body>
+<button id="openButton">Открыть модалку просто с текстом</button>
+
+<ul id="products" style="padding: 0 0 0 30px; margin-top: 10px;"></ul>
+
+<!--Массив товаров загружаем из файла-->
+</body>
+
+<script type="module">
+    import products from './products.js'
+
+    const model = {
+        modal: {
+            isOpen: false,
+            currentProduct: null,
+            text: null,
+        },
+        products: [],
+    };
+
+    const watchedModel = new Proxy(model, {
+        set(target, path, value) {
+            target[path] = value;
+            if (path === 'modal') {
+                buildModal(body);
+            }
+
+            if (path === 'products') {
+                buildProducts(list);
+            }
+
+            return true;
+        },
+    });
+
+    const body = document.querySelector('body');
+    const list = document.getElementById('products');
+    const openButton = document.getElementById('openButton');
+    const modal = document.querySelector('.modal');
+
+    const buildModal = (parent) => {
+        if (watchedModel.modal.isOpen) {
+            const modal = document.createElement('div');
+
+            modal.classList.add('modal');
+
+            const modalBody = document.createElement('div');
+            modalBody.classList.add('modal__body');
+
+            if (watchedModel.modal.currentProduct) {
+                const { title, price, description } = watchedModel.products.find(
+                    (product) => product.id === watchedModel.modal.currentProduct
+                );
+                const modalTitle = document.createElement('p');
+                modalTitle.innerText = title;
+                const modalPrice = document.createElement('p');
+                modalPrice.innerText = price;
+                const modalDescription = document.createElement('p');
+                modalDescription.innerText = description;
+
+                modalBody.appendChild(modalTitle);
+                modalBody.appendChild(modalPrice);
+                modalBody.appendChild(modalDescription);
+            } else if (watchedModel.modal.text) {
+                const modalText = document.createElement('p');
+                modalText.innerText = watchedModel.modal.text;
+
+                modalBody.appendChild(modalText);
+            }
+
+            const closeButton = document.createElement('button');
+            closeButton.classList.add('modal__close');
+            closeButton.innerText = 'Закрыть';
+
+            closeButton.addEventListener('click', () => {
+                watchedModel.modal = {
+                    isOpen: false,
+                    currentProduct: null,
+                    text: null,
+                };
+            });
+
+            modalBody.appendChild(closeButton);
+            modal.appendChild(modalBody);
+            parent.appendChild(modal);
+        } else {
+            document.querySelector('.modal').remove();
+        }
+    };
+
+    const buildProducts = (parent) => {
+        parent.innerHTML = '';
+
+        if (watchedModel.products.length) {
+            watchedModel.products.forEach(product => {
+                const li = document.createElement('li');
+                const button = document.createElement('button');
+                button.innerText = product.title
+
+                button.addEventListener('click', () => {
+                    watchedModel.modal = {
+                        isOpen: true,
+                        currentProduct: product.id,
+                        text: null,
+                    };
+                });
+
+                li.appendChild(button);
+                parent.appendChild(li);
+            })
+        }
+    };
+
+    // добавляем товары в модель
+    watchedModel.products = products
+
+    openButton.addEventListener('click', () => {
+        watchedModel.modal = {
+            isOpen: true,
+            text: 'Спасибо за регистрацию',
+        };
+    });
+</script>
+</html>
