@@ -1,11 +1,17 @@
 {
-  "name": "first-project",
+  "name": "dev",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "init:dist": "node src/createDistDir.js",
+    "writeport": "cross-env PORT=9876 node src/writePort.js",
+    "readport": "node src/readPort.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
