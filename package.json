@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "init:dist": "node src/createDistDir.js",
-    "writeport": "cross-env PORT=9876 node src/writePort.js",
-    "readport": "node src/readPort.js"
+    "dir-files-stats": "node src/dirFilesStats.js"
   },
   "author": "",
   "license": "ISC",
