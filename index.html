@@ -1,0 +1,71 @@
+<html lang="ru">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="x-ua-compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>UI-тесты</title>
+	<script defer src="./index.js"></script>
+</head>
+<body>
+<form>
+	<div>
+		<label>Введите email</label>
+		<input type="email" data-testid="email" id="email" />
+		<div class="block-error d-none" aria-label="email-error" id="email-error"></div>
+	</div>
+
+	<div>
+		<label>Введите пароль</label>
+		<input type="text" data-testid="password" id="password" />
+		<div class="block-error d-none" aria-label="password-error" id="password-error"></div>
+	</div>
+
+	<div>
+		<label>
+			<input type="checkbox" data-testid="agreement" id="agreement" /> Даю согласие на обработку персональных данных
+		</label>
+		<div class="block-error d-none" aria-label="agreement-error" id="agreement-error"></div>
+	</div>
+
+	<button id="submit" disabled>Отправить</button>
+</form>
+</body>
+</html>
+
+
+
+<style>
+	body {
+		font-size: 18px;
+		line-height: 1.5;
+	}
+
+	form > div {
+		margin-bottom: 5px;
+	}
+
+	.block-error {
+		color: red;
+	}
+	.d-none {
+		display: none;
+	}
+
+	.input-error {
+		border-color: red;
+	}
+
+	label {
+		user-select: none;
+	}
+
+	[type=checkbox].input-error {
+		box-shadow: 0 0 0 2px red;
+	}
+
+	button {
+		font-size: 16px;
+		margin-top: 10px;
+		padding: 5px 10px;
+	}
+</style>
