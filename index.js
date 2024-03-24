@@ -18,7 +18,6 @@ const app = () => {
             }
 
             if (property === 'isModalOpen') {
-                console.log(property)
                 modalRender(state)
             }
         }
@@ -123,11 +122,8 @@ const app = () => {
     }
 
     const modalRender = (state) => {
-        console.log('modalRender')
         if (state.isModalOpen === true) {
             const currentUser = state.data.find((user) => user.id === state.currentUserId)
-
-            console.log(currentUser)
 
             const modal = document.createElement('div')
             modal.classList.add('modal')
@@ -180,7 +176,6 @@ const app = () => {
         }
 
         if (state.isModalOpen === false) {
-            console.log(false)
             document.querySelector('.modal').remove()
         }
     }
@@ -191,6 +186,16 @@ const app = () => {
 
     document.addEventListener('DOMContentLoaded', () => {
         state.isLoaded = true;
+    })
+
+    window.addEventListener('load', async () => {
+        if ('serviceWorker' in navigator) {
+            try {
+                await navigator.serviceWorker.register('./sw.js')
+            } catch (e) {
+                console.error(e)
+            }
+        }
     })
 }
 
